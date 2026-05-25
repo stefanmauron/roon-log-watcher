@@ -1,0 +1,91 @@
+{
+  "baseDirectory": "/Volumes/Data",
+  "autoDiscoverRoonLogDirectories": true,
+  "logDirectories": [],
+  "pollIntervalSeconds": 0.25,
+  "sendMacNotifications": true,
+  "showAllLogLines": false,
+  "smoothTerminalOutput": true,
+  "watchExistingLogsFromEnd": true,
+  "fileNameIncludes": [
+    "log",
+    "txt"
+  ],
+  "directoryNameIncludes": [
+    "roon",
+    "raat"
+  ],
+  "excludeDirectories": [
+    "/Volumes/Data/Storage"
+  ],
+  "maxFilesPerDirectory": 50,
+  "patterns": [
+    {
+      "name": "Server restart / startup",
+      "severity": "warning",
+      "regex": "(starting roon|roon server.*start|restart|restarting|shutting down|shutdown|core.*paired|core.*unpaired)",
+      "notify": true
+    },
+    {
+      "name": "Database issue",
+      "severity": "critical",
+      "regex": "(database|db|leveldb).*?(corrupt|error|fail|exception|repair|recover|locked|malformed|invalid)",
+      "notify": true
+    },
+    {
+      "name": "RAAT disconnect",
+      "severity": "warning",
+      "regex": "(raat|transport|stream).*?(disconnect|disconnected|lost|timeout|fail|failed|error|dropped|closed|unavailable)",
+      "notify": true
+    },
+    {
+      "name": "Audio device lost",
+      "severity": "warning",
+      "regex": "(audio device|output|zone|device).*?(lost|missing|disconnect|disconnected|unavailable|failed|error)",
+      "notify": true
+    },
+    {
+      "name": "Network issue",
+      "severity": "warning",
+      "regex": "(network|socket|connection|connect|http|tcp).*?(timeout|refused|reset|lost|unreachable|failed|error|closed)",
+      "notify": true
+    },
+    {
+      "name": "Exception / crash",
+      "severity": "critical",
+      "regex": "(exception|crash|fatal|panic|stack trace|traceback|segfault)",
+      "notify": true
+    }
+  ],
+  "memoryWindow": false,
+  "memoryWindowPort": 17666,
+  "memoryHistoryMaxPoints": 2000,
+  "memorySeedBytes": 104857600,
+  "memoryDebug": false,
+  "memoryRescanIntervalSeconds": 30,
+  "discoveryMaxDepth": 8,
+  "terminalOutputIntervalMs": 25,
+  "forceDeepDiscovery": false,
+  "startupHeartbeat": true,
+  "autoCleanupOldInstances": true,
+  "memoryAlerts": {
+    "enabled": true,
+    "physicalMemoryMB": 2500,
+    "unmanagedMemoryMB": 1800,
+    "managedMemoryMB": 1200,
+    "growthWindowMinutes": 30,
+    "growthThresholdMB": 200,
+    "minSamplesForGrowth": 5
+  },
+  "recentLogMaxLines": 1000,
+  "terminalLogs": false,
+  "processMemoryPolling": true,
+  "processMemoryPollIntervalSeconds": 5,
+  "linuxLogDirectoryHints": [
+    "~/RoonServer/Logs",
+    "~/.RoonServer/Logs",
+    "/var/roon/RoonServer/Logs",
+    "/var/lib/roon/RoonServer/Logs",
+    "/opt/RoonServer/Logs"
+  ]
+}

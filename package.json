@@ -1,0 +1,25 @@
+{
+  "name": "roon-log-watcher",
+  "version": "8.82.0",
+  "description": "Roon Log Watcher release-candidate preparation with documentation and architecture guardrail synchronization.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js --all --interval 0.25 --memory-window",
+    "init": "node app.js --write-default-config",
+    "start:all": "node app.js --all",
+    "start:fast": "node app.js --interval 1",
+    "start:all-fast": "node app.js --all --interval 0.25",
+    "diagnose": "node app.js --diagnose",
+    "start:memory": "node app.js --memory-window --interval 1",
+    "start:all-memory": "node app.js --all --interval 0.25 --memory-window",
+    "start:memory-debug": "node app.js --all --interval 0.25 --memory-window --memory-debug",
+    "memory:test": "node app.js --memory-test-file",
+    "start:no-cleanup": "node app.js --no-cleanup",
+    "start:dashboard": "node app.js --all --interval 0.25 --memory-window",
+    "diagnose:linux": "node app.js --diagnose",
+    "test": "node --test && npm run architecture:check",
+    "architecture:check": "node scripts/architecture-check.js",
+    "release:check": "npm test && node scripts/release-candidate-check.js"
+  },
+  "dependencies": {}
+}
